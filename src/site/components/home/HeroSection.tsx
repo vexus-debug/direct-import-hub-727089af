@@ -37,7 +37,6 @@ const HeroSection = () => {
                   Get Started <ArrowRight className="h-4 w-4" />
                 </Button>
               </a>
-              <span className="text-sm text-white/40">No setup fee. Live in a week.</span>
             </div>
           </motion.div>
 
