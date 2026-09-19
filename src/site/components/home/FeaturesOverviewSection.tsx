@@ -1,106 +1,148 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, Calendar, Receipt, Package, BarChart3, Shield, Stethoscope, FlaskConical } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const outcomes = [
-  {
-    icon: Users,
-    title: "Never Lose a Patient's History Again",
-    description: "Every visit, prescription, and treatment in one place, accessible in seconds, not buried in a filing cabinet.",
-  },
-  {
-    icon: Calendar,
-    title: "Cut No-Shows by Up to 40%",
-    description: "Automated reminders go out so patients remember to show up, and your chairs stay filled.",
-  },
-  {
-    icon: Stethoscope,
-    title: "Document Faster, See More Patients",
-    description: "Clinical notes that take minutes, not an hour at the end of your shift. More patients. Less burnout.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Stop Losing Track of Lab Work",
-    description: "Know exactly where every lab case is, who's working on it, and when it's due, no more chasing technicians.",
-  },
-  {
-    icon: Receipt,
-    title: "Get Paid Faster, Every Time",
-    description: "Invoices created in seconds, payment plans offered on the spot, and zero revenue slipping through the cracks.",
-  },
-  {
-    icon: Package,
-    title: "Know What's Running Low Before It Does",
-    description: "No more emergency supply runs or treating patients with materials you don't have. Stay stocked, stay profitable.",
-  },
-  {
-    icon: BarChart3,
-    title: "Finally Know if Your Clinic is Profitable",
-    description: "See your real revenue, your real costs, and exactly which services make you the most money, all at a glance.",
-  },
-  {
-    icon: Shield,
-    title: "Sleep Well Knowing Your Data is Safe",
-    description: "Every staff member sees only what they should. Your financials, your records, your business, protected.",
-  },
+const schedule = [
+  { time: "08:30", patient: "Adaeze Okonkwo", detail: "Scaling & polishing", status: "Checked in" },
+  { time: "09:15", patient: "Tunde Bakare", detail: "Root canal, session 2", status: "In chair" },
+  { time: "10:00", patient: "Grace Nwosu", detail: "Eye test & refraction", status: "Confirmed" },
+  { time: "11:30", patient: "Samuel Eze", detail: "Crown fitting", status: "Reminder sent" },
 ];
+
+const invoices = [
+  { ref: "INV-2841", patient: "Adaeze Okonkwo", amount: "₦85,000", state: "Paid" },
+  { ref: "INV-2838", patient: "Michael Adeyemi", amount: "₦142,500", state: "Part payment" },
+  { ref: "INV-2830", patient: "Grace Nwosu", amount: "₦36,000", state: "12 days overdue" },
+  { ref: "INV-2827", patient: "HMO — Avon", amount: "₦410,000", state: "Awaiting claim" },
+];
+
+const labCases = [
+  { caseId: "LAB-118", work: "Zirconia crown, tooth 26", lab: "Bridgeway Dental Lab", due: "Due tomorrow" },
+  { caseId: "LAB-121", work: "Upper partial denture", lab: "Bridgeway Dental Lab", due: "In transit" },
+  { caseId: "LAB-124", work: "Single-vision lenses", lab: "Optica Works", due: "Ready for fitting" },
+];
+
+const panelClass =
+  "site-hairline-invert rounded-md bg-white/[0.03] p-6";
 
 const FeaturesOverviewSection = () => {
   return (
-    <section className="relative overflow-hidden bg-[hsl(var(--medical-blue-dark))] py-24 md:py-32">
-      <div className="pointer-events-none absolute inset-0 " />
-
+    <section className="relative bg-[hsl(var(--medical-blue-dark))] py-24 md:py-32">
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mx-auto mb-14 max-w-2xl text-center"
+          className="max-w-2xl"
         >
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-[hsl(var(--medical-teal))]">
-            What You Actually Get
-          </span>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Real Problems. Real Results.
+          <span className="site-eyebrow block text-white/45">A day inside the clinic</span>
+          <h2 className="mt-4 text-3xl text-white md:text-4xl">
+            Today's schedule, the money owed, and every lab case, in one place.
           </h2>
-          <p className="text-white/60">
-            Every part of Clinexus answers one question: what do you, the clinic owner, actually need to stop worrying and start earning more?
+          <p className="mt-4 text-white/55">
+            No dashboards full of icons. Just the three things that decide whether your day runs
+            well: who is coming in, who still owes you, and what is sitting at the lab.
           </p>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {outcomes.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
-            >
-              <div className="relative z-10">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[hsl(var(--primary))]/20">
-                  <item.icon className="h-5 w-5 text-[hsl(var(--medical-teal))]" />
-                </div>
-                <h3 className="mb-1.5 text-base font-semibold text-white">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-white/50">{item.description}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className={panelClass}
+          >
+            <header className="flex items-baseline justify-between border-b border-white/10 pb-3">
+              <h3 className="text-lg text-white">Today's schedule</h3>
+              <span className="text-xs text-white/40">Tue, 12 Mar</span>
+            </header>
+            <ul className="divide-y divide-white/[0.07]">
+              {schedule.map((item) => (
+                <li key={item.time} className="flex gap-4 py-3.5">
+                  <span className="w-12 shrink-0 text-sm tabular-nums text-white/70">{item.time}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm text-white/90">{item.patient}</span>
+                    <span className="block truncate text-xs text-white/40">{item.detail}</span>
+                  </span>
+                  <span className="shrink-0 self-center border border-white/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-white/55">
+                    {item.status}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className={panelClass}
+          >
+            <header className="flex items-baseline justify-between border-b border-white/10 pb-3">
+              <h3 className="text-lg text-white">Invoices</h3>
+              <span className="text-xs text-white/40">₦673,500 outstanding</span>
+            </header>
+            <ul className="divide-y divide-white/[0.07]">
+              {invoices.map((invoice) => (
+                <li key={invoice.ref} className="flex items-baseline gap-4 py-3.5">
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm text-white/90">{invoice.patient}</span>
+                    <span className="block text-xs text-white/40">
+                      {invoice.ref} · {invoice.state}
+                    </span>
+                  </span>
+                  <span className="shrink-0 text-sm tabular-nums text-white/80">{invoice.amount}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.16 }}
+            className={panelClass}
+          >
+            <header className="flex items-baseline justify-between border-b border-white/10 pb-3">
+              <h3 className="text-lg text-white">Lab cases</h3>
+              <span className="text-xs text-white/40">3 open</span>
+            </header>
+            <ul className="divide-y divide-white/[0.07]">
+              {labCases.map((labCase) => (
+                <li key={labCase.caseId} className="py-3.5">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <span className="text-sm text-white/90">{labCase.work}</span>
+                    <span className="shrink-0 text-xs tabular-nums text-white/45">{labCase.caseId}</span>
+                  </div>
+                  <div className="mt-1 flex items-baseline justify-between gap-3">
+                    <span className="text-xs text-white/40">{labCase.lab}</span>
+                    <span className="shrink-0 text-xs text-white/60">{labCase.due}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 border-t border-white/10 pt-4 text-xs leading-relaxed text-white/40">
+              Every case shows who is working on it and when it is due, so nothing goes quiet
+              between your clinic and the lab.
+            </p>
+          </motion.div>
         </div>
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="mt-10 text-center"
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="mt-10"
         >
           <Link to="/industries">
-            <Button variant="ghost" className="gap-2 text-white/80 hover:bg-white/10 hover:text-white">
-              See Everything You Get <ArrowRight className="h-4 w-4" />
+            <Button variant="ghost" className="gap-2 rounded-sm px-0 text-white/75 hover:bg-transparent hover:text-white">
+              See everything you get <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
         </motion.div>
