@@ -31,7 +31,7 @@ const CTASection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full px-8"
+                className="rounded-sm px-8"
               >
                 See It in Action First
               </Button>
