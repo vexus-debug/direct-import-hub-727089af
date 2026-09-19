@@ -86,7 +86,7 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="sm"
-              className={`rounded-full text-sm font-medium ${
+              className={`rounded-sm text-sm font-medium ${
                 darkHero ? "text-white/80 hover:text-white hover:bg-white/10" : ""
               }`}
             >
