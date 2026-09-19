@@ -7,7 +7,6 @@ const CTASection = () => {
   return (
     <section className="relative site-section-tint overflow-hidden py-24">
       <div className="pointer-events-none absolute inset-0 bg-muted/20" />
-      <div className="pointer-events-none absolute left-1/2 bottom-0 h-[400px] w-[600px] -translate-x-1/2 translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +31,7 @@ const CTASection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full px-8"
+                className="rounded-sm px-8"
               >
                 See It in Action First
               </Button>

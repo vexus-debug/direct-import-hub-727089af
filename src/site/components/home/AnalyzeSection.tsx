@@ -6,7 +6,6 @@ const AnalyzeSection = () => {
   return (
     <section className="relative site-section-light overflow-hidden py-20 md:py-28">
       <div className="pointer-events-none absolute inset-0 bg-muted/20" />
-      <div className="pointer-events-none absolute left-1/4 top-0 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
       <div className="container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <motion.div
@@ -45,19 +44,16 @@ const AnalyzeSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="rounded-2xl border border-border/50 bg-[#1a1a2e] p-2 shadow-xl shadow-primary/5">
-              <div className="flex items-center gap-2 rounded-t-xl bg-[#2a2a3e] px-4 py-2.5">
-                <div className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-                <div className="h-3 w-3 rounded-full bg-[#febc2e]" />
-                <div className="h-3 w-3 rounded-full bg-[#28c840]" />
-                <div className="ml-3 flex-1 rounded-md bg-white/10 px-3 py-1 text-[10px] text-white/40">
-                  app.clinexus.com.ng/profitability
-                </div>
-              </div>
-              <div className="overflow-hidden rounded-b-xl">
-                <img src={profitabilityScreenshot} alt="Clinexus Profitability Dashboard" className="w-full" />
-              </div>
-            </div>
+            <figure className="site-hairline overflow-hidden rounded-md bg-card">
+              <img
+                src={profitabilityScreenshot}
+                alt="Clinexus profitability report showing revenue by service and clinic costs"
+                className="w-full"
+              />
+              <figcaption className="border-t border-border px-4 py-3 text-xs text-muted-foreground">
+                Profitability by service, updated as invoices are paid.
+              </figcaption>
+            </figure>
           </motion.div>
         </div>
       </div>

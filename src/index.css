@@ -617,3 +617,46 @@
   border-top: 1px solid hsl(var(--primary) / 0.14);
   border-bottom: 1px solid hsl(var(--primary) / 0.14);
 }
+
+/* ── Public site editorial typography & surfaces ──
+   Serif display headings + tight sans body, hairline borders,
+   soft shadows. Scoped to the public marketing site only. */
+.site-theme h1,
+.site-theme h2,
+.site-theme h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.site-theme h1 {
+  line-height: 1.04;
+}
+
+.site-theme p,
+.site-theme li {
+  font-family: "DM Sans", system-ui, sans-serif;
+  letter-spacing: -0.005em;
+}
+
+.site-theme .site-eyebrow {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.site-theme .site-hairline {
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 1px 2px hsl(215 28% 12% / 0.04), 0 18px 40px -32px hsl(215 28% 12% / 0.5);
+}
+
+.site-theme .site-hairline-invert {
+  border: 1px solid hsl(0 0% 100% / 0.12);
+  box-shadow: 0 20px 50px -35px hsl(0 0% 0% / 0.8);
+}
+
+.site-theme .site-rule {
+  border-top: 1px solid hsl(var(--border));
+}

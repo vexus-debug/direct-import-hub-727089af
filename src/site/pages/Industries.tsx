@@ -201,7 +201,6 @@ const Industries = () => {
       {/* Industries Grid */}
       <section className="relative site-section-light overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 bg-background" />
-        <div className="pointer-events-none absolute -left-32 top-1/3 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
 
         <div className="container relative z-10 space-y-20">
           {industries.map((ind, i) => (

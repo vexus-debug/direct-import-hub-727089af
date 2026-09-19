@@ -29,7 +29,6 @@ const TestimonialsSection = () => {
   return (
     <section className="relative site-section-light overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 bg-background" />
-      <div className="pointer-events-none absolute left-0 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
 
       <div className="container relative z-10">
         <motion.div

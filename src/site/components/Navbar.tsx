@@ -59,12 +59,12 @@ const Navbar = () => {
 
         {/* Desktop nav */}
         <div className="hidden items-center md:flex">
-          <div className="flex items-center rounded-full border border-border/40 bg-background/50 px-1 py-1 backdrop-blur-sm">
+          <div className="flex items-center rounded-sm border border-border/50 bg-background/60 px-1 py-1">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`relative rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200 ${
+                className={`relative rounded-sm px-4 py-1.5 text-sm font-medium transition-all duration-200 ${
                   location.pathname === link.to
                     ? darkHero
                       ? "bg-white/15 text-white shadow-sm"
@@ -86,7 +86,7 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="sm"
-              className={`rounded-full text-sm font-medium ${
+              className={`rounded-sm text-sm font-medium ${
                 darkHero ? "text-white/80 hover:text-white hover:bg-white/10" : ""
               }`}
             >
@@ -96,7 +96,7 @@ const Navbar = () => {
           <a href="https://wa.me/2349017758165" target="_blank" rel="noopener noreferrer">
             <Button
               size="sm"
-              className="gap-1.5 rounded-full bg-primary px-5 text-white shadow-md hover:opacity-90"
+              className="gap-1.5 rounded-sm bg-primary px-5 text-white shadow-sm hover:opacity-90"
             >
               Get Started <ArrowRight className="h-3.5 w-3.5" />
             </Button>

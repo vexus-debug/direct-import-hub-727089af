@@ -5,7 +5,6 @@ const CollaborateSection = () => {
   return (
     <section className="relative overflow-hidden bg-[hsl(var(--medical-blue-dark))] py-20 md:py-28">
       <div className="pointer-events-none absolute inset-0 bg-muted/20" />
-      <div className="pointer-events-none absolute right-0 top-0 h-[400px] w-[400px] translate-x-1/3 -translate-y-1/3 rounded-full bg-primary/10 blur-3xl" />
       <div className="container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left: Visual */}
