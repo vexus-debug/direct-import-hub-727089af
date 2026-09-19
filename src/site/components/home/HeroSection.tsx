@@ -1,102 +1,80 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import dashboardScreenshot from "@/assets/site/dashboard-screenshot.png";
 
-const outcomes = ["More Revenue", "Fewer No-Shows", "Zero Paperwork", "Faster Payments", "Full Visibility"];
-
-const TypingText = () => {
-  const [wordIndex, setWordIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const current = outcomes[wordIndex];
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (!deleting && displayed.length < current.length) {
-      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 100);
-    } else if (!deleting && displayed.length === current.length) {
-      timeout = setTimeout(() => setDeleting(true), 1800);
-    } else if (deleting && displayed.length > 0) {
-      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length - 1)), 60);
-    } else if (deleting && displayed.length === 0) {
-      setDeleting(false);
-      setWordIndex((prev) => (prev + 1) % outcomes.length);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [displayed, deleting, wordIndex]);
-
-  return (
-    <span className="bg-primary ">
-      {displayed}
-      <span className="animate-pulse text-[hsl(var(--primary))]">|</span>
-    </span>
-  );
-};
+const proofPoints = [
+  { value: "3–4 hrs", label: "Admin time given back each day" },
+  { value: "40%", label: "Fewer no-shows with automatic reminders" },
+  { value: "9", label: "Staff roles with their own access" },
+];
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-[hsl(var(--medical-blue-dark))] py-24 md:py-32 lg:py-40">
-      {/* Concentric circle wave patterns */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        {[700, 550, 400, 260].map((size, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full border border-white/[0.06]"
-            style={{ width: size, height: size }}
-          />
-        ))}
-      </div>
-      <div className="pointer-events-none absolute inset-0 " />
-
+    <section className="relative bg-[hsl(var(--medical-blue-dark))] py-20 md:py-28">
       <div className="container relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <h1 className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
-            Your Clinic Deserves{" "}
-            <TypingText />
-          </h1>
-          <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-white/60">
-            Stop chasing payments, fixing billing mistakes, and drowning in paperwork. Clinexus runs the business side of your clinic so you can focus on patients, and actually go home on time.
-          </p>
-          <a href="https://wa.me/2349017758165" target="_blank" rel="noopener noreferrer">
-            <Button
-              size="lg"
-              className="gap-2 rounded-full bg-primary px-10 text-white shadow-lg shadow-[hsl(var(--primary))]/30 hover:opacity-90"
-            >
-              Get Started <ArrowRight className="h-4 w-4" />
-            </Button>
-          </a>
-        </motion.div>
+        <div className="grid items-end gap-12 lg:grid-cols-12">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
+          >
+            <span className="site-eyebrow block text-white/50">
+              Clinic operations software
+            </span>
+            <h1 className="mt-5 max-w-2xl text-4xl text-white md:text-5xl lg:text-[3.75rem]">
+              Your clinic deserves more revenue, and fewer late nights.
+            </h1>
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-white/60">
+              Stop chasing payments, fixing billing mistakes, and drowning in paperwork.
+              Clinexus runs the business side of your clinic so you can focus on patients,
+              and actually go home on time.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a href="https://wa.me/2349017758165" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="gap-2 rounded-sm bg-primary px-8 text-white hover:opacity-90">
+                  Get Started <ArrowRight className="h-4 w-4" />
+                </Button>
+              </a>
+              <span className="text-sm text-white/40">No setup fee. Live in a week.</span>
+            </div>
+          </motion.div>
 
-        {/* Dashboard mockup */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          <motion.dl
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="lg:col-span-5"
+          >
+            <div className="divide-y divide-white/10 border-y border-white/10">
+              {proofPoints.map((point) => (
+                <div key={point.value} className="flex items-baseline gap-5 py-5">
+                  <dt className="w-24 shrink-0 text-2xl text-white">{point.value}</dt>
+                  <dd className="text-sm leading-relaxed text-white/50">{point.label}</dd>
+                </div>
+              ))}
+            </div>
+          </motion.dl>
+        </div>
+
+        <motion.figure
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mx-auto mt-16 max-w-4xl"
+          transition={{ duration: 0.7, delay: 0.25 }}
+          className="mt-16"
         >
-          <div className="rounded-2xl border border-white/10 bg-[#1a1a2e] p-2 shadow-2xl shadow-black/40 backdrop-blur-sm">
-            <div className="flex items-center gap-2 rounded-t-xl bg-[#2a2a3e] px-4 py-2.5">
-              <div className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-              <div className="h-3 w-3 rounded-full bg-[#febc2e]" />
-              <div className="h-3 w-3 rounded-full bg-[#28c840]" />
-              <div className="ml-3 flex-1 rounded-md bg-white/10 px-3 py-1 text-[10px] text-white/40">
-                app.clinexus.com.ng
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-b-xl">
-              <img src={dashboardScreenshot} alt="Clinexus Dashboard" className="w-full" />
-            </div>
+          <div className="site-hairline-invert overflow-hidden rounded-md">
+            <img
+              src={dashboardScreenshot}
+              alt="Clinexus dashboard showing clinic revenue, appointments and patient records"
+              className="w-full"
+            />
           </div>
-        </motion.div>
+          <figcaption className="mt-3 text-xs text-white/35">
+            The Clinexus dashboard: today's schedule, outstanding invoices and clinic revenue on one screen.
+          </figcaption>
+        </motion.figure>
       </div>
     </section>
   );
