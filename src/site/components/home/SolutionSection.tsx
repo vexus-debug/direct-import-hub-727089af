@@ -42,8 +42,6 @@ const SolutionSection = () => {
   return (
     <section className="relative site-section-light overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 bg-background" />
-      <div className="pointer-events-none absolute -right-20 top-1/3 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
-      <div className="pointer-events-none absolute -left-20 bottom-1/4 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" />
 
       <div className="container relative z-10">
         <div className="grid items-center gap-16 lg:grid-cols-2">

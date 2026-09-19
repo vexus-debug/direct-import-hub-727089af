@@ -59,7 +59,6 @@ const Contact = () => {
       {/* Form + Info */}
       <section className="relative site-section-light overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 bg-background" />
-        <div className="pointer-events-none absolute -right-32 top-1/4 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" />
 
         <div className="container relative z-10">
           <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2">

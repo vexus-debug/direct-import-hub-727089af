@@ -50,7 +50,6 @@ const FeaturesOverviewSection = () => {
   return (
     <section className="relative overflow-hidden bg-[hsl(var(--medical-blue-dark))] py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 " />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--primary))]/10 blur-3xl" />
 
       <div className="container relative z-10">
         <motion.div

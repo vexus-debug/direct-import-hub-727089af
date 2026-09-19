@@ -33,7 +33,6 @@ const FAQSection = () => {
   return (
     <section className="relative overflow-hidden bg-[hsl(var(--medical-blue-dark))] py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 " />
-      <div className="pointer-events-none absolute right-0 bottom-0 h-[400px] w-[400px] translate-x-1/3 translate-y-1/3 rounded-full bg-[hsl(var(--primary))]/10 blur-3xl" />
 
       <div className="container relative z-10">
         <motion.div
