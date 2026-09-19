@@ -100,6 +100,7 @@ export default {
         body: ["'Inter'", "system-ui", "sans-serif"],
         sans: ["'DM Sans'", "Inter", "system-ui", "sans-serif"],
         display: ["'Plus Jakarta Sans'", "Inter", "system-ui", "sans-serif"],
+        editorial: ["'Fraunces'", "Georgia", "serif"],
       },
       keyframes: {
         "accordion-down": {
